@@ -1,0 +1,62 @@
+url,response_code,content_type,level,referer,latency,crawled_at,nb_title,title,nb_meta_robots,meta_robots,meta_description,meta_viewport,meta_keywords,canonical,prev,next,h1,nb_h1,nb_h2,wordcount,content,XRobotsTag,outlinks,http_date,size,html_lang,hreflangs,microdata
+https://www.crowl.tech/,200,text/html,0,,0.12688612937927246,2021-01-05T15:41:40,1,Crowl · The open-source SEO crawler,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            ",1,5,417,,,,"Tue, 05 Jan 2021 15:41:40 GMT",14496,en,None,
+https://www.crowl.tech/docs/,200,text/html,1,https://www.crowl.tech/,0.024271726608276367,2021-01-05T15:41:41,1,Documentation · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            ",1,2,165,,,,"Tue, 05 Jan 2021 15:41:41 GMT",8244,en,None,
+https://www.crowl.tech/contribute/,200,text/html,1,https://www.crowl.tech/,0.02523183822631836,2021-01-05T15:41:42,1,Contribute to Crowl · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            ",1,2,504,,,,"Tue, 05 Jan 2021 15:41:42 GMT",11980,en,None,
+https://www.crowl.tech/releases/,200,text/html,1,https://www.crowl.tech/,0.023814916610717773,2021-01-05T15:41:43,1,Release Notes · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            ",1,2,132,,,,"Tue, 05 Jan 2021 15:41:43 GMT",7515,en,None,
+https://www.crowl.tech/contact/,200,text/html,1,https://www.crowl.tech/,0.024224281311035156,2021-01-05T15:41:43,1,Contact · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            ",1,2,41,,,,"Tue, 05 Jan 2021 15:41:43 GMT",7631,en,None,
+https://www.crowl.tech/contribute,301,text/html; charset=iso-8859-1,2,https://www.crowl.tech/docs/,0.02333545684814453,2021-01-05T15:41:44,,,,,,,,,,,,,,,,,,"Tue, 05 Jan 2021 15:41:44 GMT",242,,,
+https://www.crowl.tech/documentation/setup/,200,text/html,2,https://www.crowl.tech/docs/,0.02315521240234375,2021-01-05T15:41:44,1,How to install Crowl · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Installation Guide",2,4,491,,,,"Tue, 05 Jan 2021 15:41:44 GMT",13756,en,None,
+https://www.crowl.tech/documentation/configuration/,200,text/html,2,https://www.crowl.tech/docs/,0.025996685028076172,2021-01-05T15:41:45,1,Crowl configuration file · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Configuration",2,5,599,,,,"Tue, 05 Jan 2021 15:41:45 GMT",13360,en,None,
+https://www.crowl.tech/documentation/links/,200,text/html,2,https://www.crowl.tech/docs/,0.023830175399780273,2021-01-05T15:41:45,1,Links extraction · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Extracting links with Crowl",2,4,275,,,,"Tue, 05 Jan 2021 15:41:45 GMT",9342,en,None,
+https://www.crowl.tech/documentation/content/,200,text/html,2,https://www.crowl.tech/docs/,0.02411174774169922,2021-01-05T15:41:46,1,Content extraction · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Extracting pages content with Crowl",2,3,185,,,,"Tue, 05 Jan 2021 15:41:46 GMT",9759,en,None,
+https://www.crowl.tech/documentation/csv/,200,text/html,2,https://www.crowl.tech/docs/,0.026258468627929688,2021-01-05T15:41:47,1,Output: using CSV · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Exporting data to CSV",2,3,163,,,,"Tue, 05 Jan 2021 15:41:47 GMT",8345,en,None,
+https://www.crowl.tech/documentation/mysql/,200,text/html,2,https://www.crowl.tech/docs/,0.023475170135498047,2021-01-05T15:41:47,1,Output: using MySQL · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Using MySQL as output",2,6,493,,,,"Tue, 05 Jan 2021 15:41:47 GMT",12795,en,None,
+https://www.crowl.tech/documentation/resume/,200,text/html,2,https://www.crowl.tech/docs/,0.02338433265686035,2021-01-05T15:41:48,1,Resume a crawl · Crowl,0,None,,"width=device-width, initial-scale=1.0",None,None,None,None,"
+                
+                    Crowl
+                
+            Stop and resume a crawl",2,1,150,,,,"Tue, 05 Jan 2021 15:41:48 GMT",8019,en,None,
