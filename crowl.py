@@ -125,19 +125,27 @@ if __name__ == '__main__':
         output_name = args.resume
         settings.set('OUTPUT_NAME',output_name)
 
+    # Vladislav --> for logging data
+    logging.basicConfig(filename="pagerank.log", level=logging.INFO)
+
     # Set JOBDIR to pause/resume crawls 
     settings.set('JOBDIR','crawls/{}'.format(output_name))
 
-    process = CrawlerProcess(settings)
-    process.crawl(Crowler, **conf)
-    process.start()
+    try:
+        process = CrawlerProcess(settings)
+        process.crawl(Crowler, **conf)
+        process.start()
+    except:
+        logging.info("error occured while scrapy")
+        pass
+
 
 
     ####################################################
     # Vladislav --> to make pagerank
     
     time.sleep(5)
-    logging.basicConfig(filename="pagerank.log", level=logging.INFO)
+    
     logging.info("now just started!")
     pageRk = PageRank()
 
