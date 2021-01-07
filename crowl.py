@@ -6,11 +6,14 @@ import scrapy
 from utils import *
 from spiders import Crowler
 from pipelines import *
+import time
+import logging
 
 # Vladislav --> import for pagerank
 from pageRank import PageRank
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser(description="SEO crawler")
     parser.add_argument('--conf',help="Configuration file (required)",
         required=True, type=str)
@@ -133,6 +136,9 @@ if __name__ == '__main__':
 
     ####################################################
     # Vladislav --> to make pagerank
+    time.sleep(5)
+    logging.basicConfig(filename="pagerank.log", level=logging.INFO)
+    logging.info("now just started!")
 
     pageRk = PageRank()
 
