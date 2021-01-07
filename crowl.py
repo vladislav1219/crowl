@@ -13,7 +13,6 @@ import logging
 from pageRank import PageRank
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser(description="SEO crawler")
     parser.add_argument('--conf',help="Configuration file (required)",
         required=True, type=str)
@@ -136,10 +135,10 @@ if __name__ == '__main__':
 
     ####################################################
     # Vladislav --> to make pagerank
+    
     time.sleep(5)
     logging.basicConfig(filename="pagerank.log", level=logging.INFO)
     logging.info("now just started!")
-
     pageRk = PageRank()
 
     # to get newly created db connection
@@ -147,8 +146,11 @@ if __name__ == '__main__':
     mydb= pageRk.dbConnectByName(settings.get('OUTPUT_NAME'))
 
     # this is to make urls same style
-    # pageRk.updateUrlsFromUrls(mydb)
-    # pageRk.updateUrlsFromLinks(mydb)
+    logging.info("now doing update urls from urls!")
+    pageRk.updateUrlsFromUrls(mydb)
+
+    logging.info("now doing update urls from links!")
+    pageRk.updateUrlsFromLinks(mydb)
 
     # this is the varable to store urls in this type {url: url, outCounts: outCounts, incomes: incomes}
     allUFData= {}
@@ -162,6 +164,8 @@ if __name__ == '__main__':
     print(defaultPR)
 
     # get all usefull data of each url in this type {url: url, outCounts: outCounts, incomes: incomes}.
+
+    logging.info("now getting all usefull data of each url!")
     for i in range(urlCount+1):
         if i== 0:
             continue
@@ -177,12 +181,18 @@ if __name__ == '__main__':
 
         print(str(i)+ " inserted in allUFData successfully!")
 
+    logging.info("now got all usefull data of each url!")
+
     # create pageranks table if not exist
+
+ 
     existOrnot= pageRk.tableExist('pageranks', mydb)
     if existOrnot== "notExist":
+        logging.info("now creating pageranks table!")
         pageRk.createPRtable(mydb)
 
     # get PageRank of each page and set it pagerank DB.
+    logging.info("now inserting pageranks in pageranks table!")
     for ufData in allUFData:
 
         # if there are no in comes then it's pagerank will be 0.
