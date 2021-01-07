@@ -143,7 +143,8 @@ if __name__ == '__main__':
     pageRk = PageRank()
 
     # to get newly created db connection
-    mydb= pageRk.dbConnectByName(get_dbname(project_name, lastId))
+    # mydb= pageRk.dbConnectByName(get_dbname(project_name, lastId))
+    mydb= pageRk.dbConnectByName(settings.get('OUTPUT_NAME'))
 
     # this is to make urls same style
     # pageRk.updateUrlsFromUrls(mydb)
