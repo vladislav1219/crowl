@@ -56,7 +56,7 @@ require_once("functions.php");
             <div id="gridContainer"></div>
         </div>
         <div>
-            <button onclick="refresh();"></button>
+            <button onclick="refresh();">Refresh</button>
         </div>
     </div>
 

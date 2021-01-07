@@ -147,6 +147,17 @@ MYSQL_PASSWORD = Pakatopopopopo*4
         
             
     }
+    // else
+    // {
+    //     echo "from here";
+
+    //     $cmds = 'nohup python3.8 pageRank.py &';
+    //     $results = shell_exec($cmds);
+    //     // $result1= shell_exec($cmd1);
+    //     // echo $result1;
+    //     echo "to here";
+    //     sleep(3);
+    // }
     ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

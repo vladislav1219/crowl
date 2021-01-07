@@ -7,6 +7,9 @@ from utils import *
 from spiders import Crowler
 from pipelines import *
 
+# Vladislav --> import for pagerank
+from pageRank import PageRank
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="SEO crawler")
     parser.add_argument('--conf',help="Configuration file (required)",
@@ -127,3 +130,67 @@ if __name__ == '__main__':
     process.crawl(Crowler, **conf)
     process.start()
 
+
+    ####################################################
+    # Vladislav --> to make pagerank
+
+    pageRk = PageRank()
+
+    # to get newly created db connection
+    mydb= pageRk.dbConnectByName(get_dbname(project_name, lastId))
+
+    # this is to make urls same style
+    # pageRk.updateUrlsFromUrls(mydb)
+    # pageRk.updateUrlsFromLinks(mydb)
+
+    # this is the varable to store urls in this type {url: url, outCounts: outCounts, incomes: incomes}
+    allUFData= {}
+
+    # get url counts from urls table.
+    urlCount= pageRk.getCountFromTable('urls', mydb)
+
+    # default PageRank of each url
+    defaultPR= 1/urlCount
+
+    print(defaultPR)
+
+    # get all usefull data of each url in this type {url: url, outCounts: outCounts, incomes: incomes}.
+    for i in range(urlCount+1):
+        if i== 0:
+            continue
+        # get url from urls table.
+        url= pageRk.getUrlFromUrls(i, mydb)
+
+        # get outCounts of url
+        outCounts= pageRk.getOutCountsFromLinks(url, mydb)
+
+        # get incomes of this url from others
+        incomes= pageRk.getIncomesFromLinks(url, mydb)
+        allUFData[url]= {'url': url, 'outCounts': outCounts, 'incomes': incomes}
+
+        print(str(i)+ " inserted in allUFData successfully!")
+
+    # create pageranks table if not exist
+    existOrnot= pageRk.tableExist('pageranks', mydb)
+    if existOrnot== "notExist":
+        pageRk.createPRtable(mydb)
+
+    # get PageRank of each page and set it pagerank DB.
+    for ufData in allUFData:
+
+        # if there are no in comes then it's pagerank will be 0.
+        pagerank= 0
+        for income in allUFData[ufData]['incomes']:
+            if type(income) is tuple:
+                if type(income[0]) is not str:
+                    incomeUrl= income[0].decode("utf-8")
+                else:
+                    incomeUrl= income[0]
+            else:
+                incomeUrl= income
+            pagerank+= defaultPR/allUFData[incomeUrl]['outCounts']
+        urlOfPR= allUFData[ufData]['url']
+        pageRk.insertIntoPageRank(urlOfPR, pagerank, mydb)
+        print(ufData+ " inserted in DB!")
+        # print(allUFData[ufData])
+        # print(allUFData[ufData]['incomes'][0][0].decode("utf-8")+"\n")
