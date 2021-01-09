@@ -136,20 +136,43 @@ class PageRank():
         mycursor.execute(sql, val)
         outCounts= mycursor.fetchone()[0]
         mycursor.close()
+        if int(outCounts)== 0:
+            outCounts= 1
         return outCounts
+
+    # this is to get outlinks of url from urls
+    def getOutCountsFromUrls(self, id, mydb):
+        mycursor= mydb.cursor()
+        sql= "SELECT outlinks FROM urls WHERE id= "+str(id)
+        mycursor.execute(sql)
+        outCounts= mycursor.fetchone()[0]
+        mycursor.close()
+        return int(outCounts)
 
     # this is to get incomes urls of url from links
     def getIncomesFromLinks(self, url, mydb):
-        time.sleep(0.05)
+        # time.sleep(0.1)
         mycursor = mydb.cursor()
-        sql= "SELECT DISTINCT source FROM links WHERE target= %s"
+        sql= "SELECT source FROM links WHERE target= %s"
         val= (str(url),)
         mycursor.execute(sql, val)
 
         incomes= mycursor.fetchall()
-        time.sleep(0.05)
+        # time.sleep(0.1)
         mycursor.close()
         return incomes
+
+    # get canocialize in urls table
+    def getCanonicalFromUrls(self, id, mydb):
+        mycursor = mydb.cursor()
+        sql= "SELECT canonical FROM urls WHERE id= %s"
+        val= (str(id),)
+        mycursor.execute(sql, val)
+        canonical= mycursor.fetchone()
+        if type(canonical) is tuple:
+            canonical= canonical[0]
+        mycursor.close()
+        return canonical
 
     # def makeOjData(self, url, outCounts, incomes):
     #     return {url: url, outCounts: outCounts, incomes: incomes}
@@ -185,5 +208,5 @@ class PageRank():
         mydb.commit()
         mycursor.close()
     
-    
+
     
