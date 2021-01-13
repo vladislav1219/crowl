@@ -27,7 +27,8 @@ class PageRank():
                      passwd="Pakatopopopopo*4",
                      db= dbname)
         return mydb
-    
+    # user="vladislav",
+    # passwd="Pakatopopopopo*4",
     # this is to get row counts of table
     def getCountFromTable(self, table, mydb):
         mycursor = mydb.cursor()
@@ -199,6 +200,17 @@ class PageRank():
         sql= "CREATE TABLE pageranks (id INT AUTO_INCREMENT PRIMARY KEY, url VARCHAR(500), pagerank VARCHAR(500))"
         mycursor.execute(sql)
         mycursor.close()
+
+    def tenTypeForPR(self, allUFData):
+        maxtmp= 0
+        for ufData in allUFData:
+            if allUFData[ufData]['pagerank']> maxtmp:
+                maxtmp= allUFData[ufData]['pagerank']
+        x= 10/maxtmp
+        for ufData in allUFData:
+            allUFData[ufData]['pagerank']= round(allUFData[ufData]['pagerank']* x, 5)
+        return allUFData
+
 
     def insertIntoPageRank(self, url, pagerank, mydb):
         mycursor = mydb.cursor()
